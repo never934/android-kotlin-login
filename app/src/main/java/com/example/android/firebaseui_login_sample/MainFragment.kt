@@ -52,7 +52,10 @@ class MainFragment : Fragment() {
         // TODO Remove the two lines below once observeAuthenticationState is implemented.
         binding.welcomeText.text = viewModel.getFactToDisplay(requireContext())
         binding.authButton.text = getString(R.string.login_btn)
-
+        binding.settingsBtn.setOnClickListener {
+            val action = MainFragmentDirections.actionMainFragmentToSettingsFragment()
+            findNavController().navigate(action)
+        }
         return binding.root
     }
 
